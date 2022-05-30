@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div v-on:mouseover="toadoxvay">
+        <p>Bấm vào để tăng giá trị</p>
+        <button v-on:click="tangGiaTri">Click</button><button @click="dem++">Đếm giá trị theo javascript</button>
+        <p>{{dem}}</p>
+        <p>{{dem > 5 ? 'Bạn đã vượt quá giá trị' : 'Bạn chưa vượt quá giá trị'}}</p>
+        <p>Tọa đọ x,y là:</p>
+        <p>{{x}}/{{y}} <span v-on:mouseover.stop="">Dừng sự kiên tọa độ</span></p>
+        <input @keyup.shift="keyboard" />
+        <div>
+          <input v-model="name">
+          <span>{{name}}</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name: 'Khuất Duy Mạnh',
+       dem: 0,
+       x: 0,
+       y: 0
+      },
+      methods: {
+        tangGiaTri: function() {
+          this.dem++;
+        },
+        toadoxvay: function(even) {
+          this.x = even.clientX
+          this.y = even.clientY
+        },
+        dungtoado: function(e) {
+          e.stopPropagation();
+        },
+        keyboard: function() {
+          alert('Hello Baby')
+        }
+
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span>Giá trị a: {{tanga}}</span>
+      <br>
+      <span>Giá trị b: {{tangb}}</span>
+      <br>
+      <button @click="a++">Tăng a</button>
+      <button @click="b++">Tăng b</button>
+      <p>{{diem}}</p>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        diem: "Toán 7 điểm",
+       a: 0,
+       b: 0
+      },
+      //computed thực hiện như một function nhưng nó chỉ được coi là một thuộc tính
+      // computed và watcher thường đi kèm với nhau
+      //  wactcher theo dõi sự thay đổi của biến để làm một hành động nào đó
+      computed: {
+        tanga: function() {
+          console.log('Giá trị a')
+          return this.a
+        },
+        tangb: function() {
+          console.log('Giá trị b')
+          return this.b
+        }
+      },
+      watch: {
+        diem: function(newValue) {
+          alert("Điểm Toán đã được nhập")
+        }
+      },
+      methods: {
+      },
+    });
+
+    // app.diem = "Toán 8 điểm"
+  </script>
+</html>
