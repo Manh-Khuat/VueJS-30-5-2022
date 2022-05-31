@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <style>
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      display: inline-block;
+      margin: 10px;
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="circle" @click="active = !active" :class="activered" ></div>
+      <div class="circle" @click="active = !active" :class="activered"></div>
+      <div class="circle" @click="thrid = !thrid" :class="activegreen"></div>
+      <div class="circle" :class="color"></div>
+      <div class="circle" :style="[customStyles, {height: width + 'px'}]"></div>
+      <hr>
+      <input v-model="color" />
+      <input v-model="width" />
+      <p>Are you student</p>
+      <p v-if="student">Yes, i am student</p> <p v-else>No</p> <button @click="student = !student">Change tudent</button>
+      <template v-if="student">
+        <div>
+          <p>Menu1</p>
+          <p>Menu2</p>
+          <p>Menu3</p>
+        </div>
+      </template>
+      <span v-show="student">Test v-show</span>
+
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+       active: false,
+       thrid: false,
+       color: 'green',
+       width: 100,
+       height: 100,
+       student: true
+      },
+      computed: {
+        activered: function() {
+          return {
+            'red': this.active
+          }
+        },
+        activegreen: function() {
+          return {
+            'green': this.thrid
+          }
+        },
+        customStyles: function() {
+          return {
+            backgroundColor: this.color,
+            width: this.width + 'px',
+            height: this.height + 'px',
+          }
+        }
+      }
+    });
+  </script>
+</html>
