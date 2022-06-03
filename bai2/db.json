@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "name": "Áo Polo Nam Coolmax Locoste ",
+      "price": 499000,
+      "color": "Tím Than"
+    },
+    {
+      "id": 4,
+      "name": "Áo Phông Nam Thời Trang",
+      "price": 259000,
+      "color": "Xanh"
+    },
+    {
+      "id": "6",
+      "name": "Áo Phông",
+      "price": "129000",
+      "color": "Đỏ"
+    }
+  ]
+}
